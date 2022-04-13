@@ -1,40 +1,48 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 import styles from './styles.module.css'
 
-const SEARCH_PHRASES = [
-  'Ej: Pikachu',
-  '¿Que pokemon quieres buscar hoy?',
-  'Encuentra tu pokemon favorito',
-  'Ej: fuego',
-  'Ej: Kanto',
-  '¿Donde quieres buscar tu pokemon?',
-  'Ej: Sinnoh',
-]
+import searchPhrase from '../hooks/searchPlaceholder'
 
 export default function SearchBar() {
-  const [searchPhrase, setSearchPhrase] = useState(SEARCH_PHRASES[0])
+  const [inputText, setInputText] = useState('')
+  const router = useRouter()
 
-  useEffect(() => {
-    setSearchPhrase(
-      SEARCH_PHRASES[Math.floor(Math.random() * SEARCH_PHRASES.length)]
-    )
-  }, [])
+  const inputHandler = (e) => {
+    setInputText(e.target.value.toLowerCase())
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (inputText.length > 0) {
+      router.push(`/pokemon/${inputText}`)
+    }
+    console.log(inputText)
+  }
 
   return (
     <div className={styles.searchBar}>
       <div className={styles.searchBarContainer}>
         <div className={styles.searchBarInput}>
-          <input type="text" placeholder={searchPhrase} />
-          <button>
-            <Image
-              src="/searchIcon.svg"
-              alt="Search Icon"
-              width={24}
-              height={24}
+          <form onSubmit={handleSubmit}>
+            <input
+              onChange={inputHandler}
+              type="text"
+              placeholder={searchPhrase()}
+              name="searchBar"
+              value={inputText}
             />
-          </button>
+            <button>
+              <Image
+                src="/searchIcon.svg"
+                alt="Search Icon"
+                width={24}
+                height={24}
+              />
+            </button>
+          </form>
         </div>
       </div>
     </div>
