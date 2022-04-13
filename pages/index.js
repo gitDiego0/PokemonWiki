@@ -1,5 +1,5 @@
 import Footer from 'components/Footer/Footer'
-import SearchBar from 'components/Footer/SearchBar/SearchBar'
+import SearchBar from 'components/SearchBar/SearchBar'
 import Head from 'next/head'
 
 import styles from '../styles/Home.module.css'
