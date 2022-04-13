@@ -1,4 +1,5 @@
 import Footer from 'components/Footer/Footer'
+import Header from 'components/Header/Header'
 import SearchBar from 'components/SearchBar/SearchBar'
 import Head from 'next/head'
 
@@ -13,11 +14,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
       <main className={styles.main}>
-        {/* <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1> */}
-
         <SearchBar />
 
         <p className={styles.description}>
