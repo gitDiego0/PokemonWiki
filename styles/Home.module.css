@@ -69,12 +69,12 @@
   max-width: 300px;
 }
 
-.card:hover,
+/* .card:hover,
 .card:focus,
 .card:active {
   color: #0070f3;
   border-color: #0070f3;
-}
+} */
 
 .card h2 {
   margin: 0 0 1rem 0;
@@ -90,6 +90,62 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+}
+
+.imageWrapper {
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: -0.5rem;
+  margin-left: -0.5rem;
+  border-bottom: 1px solid lightslategray;
+}
+.cell {
+  padding: 0.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-wrap: break-word;
+}
+
+.cell a {
+  margin-bottom: 0.1rem;
+}
+
+.loading {
+  animation: shake 1s infinite;
+}
+
+@keyframes shake {
+  from {
+    transform: none;
+  }
+  20% {
+    transform: translate3d(-20%, 0, 0) rotate3d(0, 0, 1, -10deg);
+  }
+  40% {
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 5deg);
+  }
+  50% {
+    transform: translate3d(-10%, 0, 0) rotate3d(0, 0, 1, -10deg);
+  }
+  60% {
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 50deg);
+  }
+  to {
+    transform: none;
+  }
 }
 
 @media (max-width: 600px) {
