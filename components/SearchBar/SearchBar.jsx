@@ -17,9 +17,11 @@ export default function SearchBar() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (inputText.length > 0) {
-      router.push(`/pokemon/${inputText}`)
+      router.push({
+        pathname: `/pokemons`,
+        query: { search: inputText },
+      })
     }
-    console.log(inputText)
   }
 
   return (
