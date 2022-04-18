@@ -6,7 +6,6 @@ const SEARCH_PHRASES = [
   'Encuentra tu pokemon favorito',
   'Ej: fuego',
   'Ej: Kanto',
-  '¿Donde quieres buscar tu pokemon?',
   'Ej: Sinnoh',
 ]
 
